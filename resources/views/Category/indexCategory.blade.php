@@ -8,7 +8,6 @@
             <thead class="thead-dark">
             <tr>
                 <th scope="col">Eventname</th>
-                <th scope="col">Image</th>
                 <th scope="col">Description</th>
                 <th scope="col">&nbsp;</th>
                 <th scope="col">&nbsp;</th>
@@ -19,7 +18,6 @@
                 <tr>
 
                     <td>{{$e->eventname}}</td>
-                    <td>{{$e->image}}</td>
                     <td>{{$e->description}}</td>
                     <td><a type="button" class="btn btn-success btn-sm"
                            href="{{route('Event.edit',['eventid'=>$e->eventid])}}"
