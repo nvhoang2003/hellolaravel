@@ -11,7 +11,6 @@
                 <th scope="col">Username </th>
                 <th scope="col">Contact</th>
                 <th scope="col">Email</th>
-                <th scope="col">Password(Hash)</th>
                 <th scope="col">&nbsp;</th>
 
             </tr>
@@ -22,7 +21,7 @@
                     <td>{{$a->username}}</td>
                     <td>{{$a->contact}}</td>
                     <td>{{$a->email}}</td>
-                    <td>{{$a->pass_hash}}</td>
+
                     <td><a type="button" class="btn btn-success btn-sm"
                            href="{{route('Admin.edit', ['username' => $a->username])}}"
                         >Edit</a>
