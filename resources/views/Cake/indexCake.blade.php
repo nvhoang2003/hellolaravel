@@ -1,6 +1,7 @@
 @extends('master.masterpage')
 
 
+
 @section('main')
   <div class="container">
     <h1 class="display-4">Cake Index</h1>
@@ -22,6 +23,10 @@
       </thead>
       <tbody>
       @foreach($cake as $c )
+          @php
+              $c->price = number_format($c->price, 0, ',', '.');
+              $c->price .= "VND";
+          @endphp
         <tr>
           <td>{{$c->cakename}}</td>
           <td>{{$c->flavor}}</td>
