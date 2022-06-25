@@ -1,21 +1,19 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary justify-content-center ">
-    <div class="container offset-3">
+<nav class="navbar navbar-expand-md  fixed-top bg-light justify-content-center ">
     <div>
-        <input type="image" src="storage/app/public/images/" alt="">
+        <img src="{{asset('/storage/images/logo/'.'logo.png')}}" alt="" height="60" width="90" >
     </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="container offset-3">
+
+
+        <div class="collapse navbar-collapse text-dark" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle text-dark font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
                         Event
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{route('Event.index')}}">View Event</a>
+                        <a class="dropdown-item " href="{{route('Event.index')}}">View Event</a>
                         <a class="dropdown-item" href="{{route('Event.create')}}">New Event</a>
                     </div>
                 </li>
@@ -32,7 +30,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle text-dark font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
                         Cake
                     </a>
@@ -57,7 +55,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle text-dark font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
                         Admin
                     </a>
