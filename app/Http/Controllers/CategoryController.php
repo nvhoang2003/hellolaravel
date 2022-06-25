@@ -30,27 +30,28 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-//        $this->formValidate($request)->validate();
-//        if($request->hasFile('image')){
-//            $destination_path = 'public/images/Category';
-//            $image = $request->file('image');
-//            $image_name = $image->getClientOriginalName();
-//            $path = $request->file('image')->storeAs($destination_path,$image_name);
-//            $event = (object)[
-//                'eventname' => $request->input('eventname'),
-//                'image' => $image_name,
-//                'description' => $request->input('description'),
-//            ];
-//
-//        }
-//
-//
-//        $newid = CategoryRepos::insert($event);
-//
-//        return redirect()
-//            ->action('CategoryController@index')
-//            ->with('msg', 'New class with id: '.$newid.' has been inserted');
-        dd($request->all());
+        $this->formValidate($request)->validate();
+        if($request->hasFile('image')){
+            $destination_path = 'public/images/Category';
+            $image = $request->file('image');
+            $image_name = $image->getClientOriginalName();
+            $path = $request->file('image')->storeAs($destination_path,$image_name);
+            $event = (object)[
+                'eventname' => $request->input('eventname'),
+                'image' => $image_name,
+                'description' => $request->input('description')
+
+            ];
+
+        }
+
+
+        $newid = CategoryRepos::insert($event);
+
+        return redirect()
+            ->action('CategoryController@index')
+            ->with('msg', 'New class with id: '.$newid.' has been inserted');
+//        dd($request->all());
     }
 
     function formValidate(Request $request){

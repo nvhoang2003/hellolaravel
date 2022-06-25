@@ -30,7 +30,7 @@
 
       <div class="form-group">
         <label for="image" class="font-weight-bold">Image</label>
-        <input type="file"  id="image" name="image" value="{{old('image')?? $cake->image}}">
+        <input type="file" id="image" name="image">
       </div>
 
       <div class="form-group">

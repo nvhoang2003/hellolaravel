@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 class AdminRepos
 {
     public static function getAllAdmin() {
-        $sql = 'select a.username, a.contact, a.pass_hash, a.email ';
+        $sql = 'select a.username, a.contact, a.email ';
         $sql .= 'from admin as a ';
         $sql .= 'order by a.username';
 
@@ -23,7 +23,7 @@ class AdminRepos
 
     public static function insert($admin){
         $sql = 'insert into admin ';
-        $sql .= '(username, contact, email, password) ';
+        $sql .= '(username, contact, email, PASSWORD) ';
         $sql .= 'values (?, ?, ?, ?) ';
 
         $result =  DB::insert($sql, [$admin->username, $admin->contact, $admin->email, $admin->password]);
@@ -36,10 +36,10 @@ class AdminRepos
 
     public static function update(object $admin){
         $sql = 'update admin ';
-        $sql .= 'set contact = ?, email = ?, password = ? , pass_hash = ? ';
+        $sql .= 'set contact = ?, email = ?, PASSWORD = ?';
         $sql .= 'where username = ? ';
 
-        DB::update($sql, [$admin->contact, $admin->email, $admin->password, $admin->pass_hash ,$admin->username]);
+        DB::update($sql, [$admin->contact, $admin->email, $admin->password, $admin->username]);
 
     }
 }

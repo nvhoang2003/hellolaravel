@@ -16,7 +16,7 @@
             <div class="form-group">
                 <label for="image" class="font-weight-bold">Image</label>
             </div>
-            <input type="file" name="image" id="image" value="{{old('image')?? $event->image}}"/>
+            <input type="file" name="image" id="image" />
 
             <div class="form-group">
                 <label for="description" class="font-weight-bold">Description</label>
