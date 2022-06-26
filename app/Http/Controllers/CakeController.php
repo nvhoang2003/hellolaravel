@@ -105,23 +105,43 @@ class CakeController extends Controller
     public function update(Request $request, $cakeid)
     {
         if ($cakeid != $request->input('cakeid')) {
-            //id in query string must match id in hidden input
             return redirect()->action('CakeController@index');
         }
 
         $this->formValidate($request)->validate(); //shortcut
 
-        $cake = (object)[
-            'cakeid' => $request->input('cakeid'),
-            'cakename' => $request->input('cakename'),
-            'flavor' => $request->input('flavor'),
-            'price' => $request->input('price'),
-            'expiry' => $request->input('expiry'),
-            'image' => $request->input('image'),
-            'size' => $request->input('size'),
-            'event' => $request->input('event'),
-        ];
-        CakeRepos::update($cake);
+        if($request->hasFile('image')) {
+            $destination_path = 'public/images/Cake';
+            $image = $request->file('image');
+            $image_name = $image->getClientOriginalName();
+            $path = $request->file('image')->storeAs($destination_path, $image_name);
+            $cake = (object)[
+                'cakeid' => $request->input('cakeid'),
+                'cakename' => $request->input('cakename'),
+                'flavor' => $request->input('flavor'),
+                'price' => $request->input('price'),
+                'expiry' => $request->input('expiry'),
+                'image' => $image_name,
+                'size' => $request->input('size'),
+                'event' => $request->input('event'),
+            ];
+            CakeRepos::update($cake);
+        } else {
+            $cake = (object)[
+                'cakeid' => $request->input('cakeid'),
+                'cakename' => $request->input('cakename'),
+                'flavor' => $request->input('flavor'),
+                'price' => $request->input('price'),
+                'expiry' => $request->input('expiry'),
+                'image' => $request->input('image'),
+                'size' => $request->input('size'),
+                'event' => $request->input('event'),
+            ];
+            CakeRepos::update_cake($cake);
+        }
+
+
+
 
         return redirect()->action('CakeController@index')
             ->with('msg', 'Update Successfully');

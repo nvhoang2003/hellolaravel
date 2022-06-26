@@ -5,7 +5,7 @@
     <h1 class="display-4">Update Cake</h1>
     @include('partial.error')
 
-    <form action="{{route('Cake.update', ['cakeid' =>  $cake->cakeid])}}" method="post">
+    <form action="{{route('Cake.update', ['cakeid' =>  $cake->cakeid])}}" method="post" enctype="multipart/form-data">
       @csrf
       <input type="hidden" name="cakeid" value="{{old('cakeid')?? $cake->cakeid}}">
       <div class="form-group">
@@ -30,7 +30,8 @@
 
       <div class="form-group">
         <label for="image" class="font-weight-bold">Image</label>
-        <input type="text" class="form-control" id="image" name="image" value="{{old('image')?? $cake->image}}">
+        <input type="file" class="form-control" id="image" name="image" >
+          <img src="{{asset("/storage/images/Cake/".$cake->image)}}" alt="" height="60" width="90" class="mt-1">
       </div>
 
       <div class="form-group">

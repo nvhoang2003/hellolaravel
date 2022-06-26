@@ -35,15 +35,6 @@ class CategoryRepos
         return DB :: select ($sql,[$eventid]);
     }
 
-    public static function update(object $event)
-    {
-        $sql = 'update event ';
-        $sql .= 'set eventname = ?, image = ?, description = ? ';
-        $sql .= 'where eventid = ? ';
-
-        DB::update($sql, [$event->eventname, $event->image, $event->description, $event->eventid]);
-    }
-
     public static function delete($eventid)
     {
         $sql = 'delete from event ';
@@ -59,5 +50,21 @@ class CategoryRepos
         $sql .= 'join cake as c on e.eventid= c.event ';
         $sql .= 'where c.cakeid = ?';
         return DB::select($sql, [$cakeid]);
+    }
+    public static function update_category(object $event)
+    {
+        $sql = 'update event ';
+        $sql .= 'set eventname = ?, description = ? ';
+        $sql .= 'where eventid = ? ';
+
+        DB::update($sql, [$event->eventname, $event->description, $event->eventid]);
+    }
+    public static function update(object $event)
+    {
+        $sql = 'update event ';
+        $sql .= 'set eventname = ?, image = ?, description = ? ';
+        $sql .= 'where eventid = ? ';
+
+        DB::update($sql, [$event->eventname, $event->image, $event->description, $event->eventid]);
     }
 }

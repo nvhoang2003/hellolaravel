@@ -100,6 +100,13 @@ class CategoryController extends Controller
                 'description' => $request->input('description')
             ];
             CategoryRepos::update($event);
+        } else{
+            $event = (object)[
+                'eventid' => $request->input('eventid'),
+                'eventname' => $request->input('eventname'),
+                'description' => $request->input('description')
+            ];
+            CategoryRepos::update_category($event);
         }
 
             return redirect()->action('CategoryController@index')
@@ -126,7 +133,7 @@ class CategoryController extends Controller
         foreach ($cake as $c){
             if($c->event == $eventid){
                 return redirect()->action('CategoryController@index')
-                    ->with('msg', 'Delete failed because this category have some cake.');
+                    ->with('msg', 'Delete failed because this event have some cake.');
             }
         }
         CategoryRepos::delete($eventid);

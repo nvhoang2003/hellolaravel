@@ -63,4 +63,12 @@ class CakeRepos
 
         DB::delete($sql, [$cakeid]);
     }
+    public static function update_cake(object $cake)
+    {
+        $sql = 'update cake ';
+        $sql .= 'set cakename = ?, flavor = ?, price = ?, expiry = ?, size = ?, event = ? ';
+        $sql .= 'where cakeid = ? ';
+
+        DB::update($sql, [$cake->cakename, $cake->flavor, $cake->price, $cake->expiry, $cake->size, $cake->event, $cake->cakeid]);
+    }
 }
