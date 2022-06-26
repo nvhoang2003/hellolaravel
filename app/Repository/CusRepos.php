@@ -24,7 +24,7 @@ class CusRepos
 
     public static function update(object $cus){
         $sql = 'update CUSTOMER ';
-        $sql .= 'set cusname = ?, dob = ?, gender = ?, contact = ?, email = ?, address = ?';
+        $sql .= 'set cusname = ?, dob = ?, gender = ?, contact = ?, email = ?, address = ? ';
         $sql .= 'where cusid = ? ';
 
         DB::update($sql, [$cus->cusname, $cus->dob, $cus->gender, $cus->contact, $cus->email, $cus->address, $cus->cusid]);
