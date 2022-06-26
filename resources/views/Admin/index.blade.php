@@ -7,7 +7,7 @@
         <table class="table table-hover">
             <thead class="thead-dark">
             <tr>
-                {{--        <th scope="col">#</th>--}}
+                <th scope="col">#</th>
                 <th scope="col">Username </th>
                 <th scope="col">Contact</th>
                 <th scope="col">Email</th>
