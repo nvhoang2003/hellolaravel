@@ -6,10 +6,14 @@
     @include('partial.error')
 <form action="{{route('Admin.update', ['username' =>  $admin->username])}}" method="post">
     @csrf
-    <div class="form-group">
-        <label for="username" class="font-weight-bold">Username</label>
-        <input type="hidden" class="form-control" id="username" name="username" value="{{old('username')?? $admin->username}}">
-    </div>
+
+        <div class="form-group">
+            <label for="username" id="disabledInput" class="font-weight-bold" >Username</label>
+            <input type="hidden" name="username" value="{{old('username')?? $admin->username}}">
+            <input type="text"  class="form-control" id="disable" name="disable" value="{{old('username')?? $admin->username}}" disabled>
+        </div>
+
+
 
     <div class="form-group">
         <label for="number" class="font-weight-bold">Contact</label>
@@ -23,7 +27,7 @@
 
     <div class="form-group">
         <label for="password" class="font-weight-bold">Password</label>
-        <input type="number" class="form-control" id="password" name="password" min="0" value="{{old('password')?? $admin->password}}">
+        <input type="text" class="form-control" id="password" name="password"  value="{{old('password')?? $admin->PASSWORD}}">
     </div>
     <div>
         <input type="submit" value="Submit">

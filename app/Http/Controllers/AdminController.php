@@ -23,15 +23,32 @@ function formValidate(Request $request){
     return \Illuminate\Support\Facades\Validator::make(
         $request ->all(),
         [
-            'username' => ['required'
+            'username' => ['required'],
+            'contact' => ['required'],
+            'password'=> ['required',
+                function($attribute, $value , $fail){
+                    global $request;
+
+                    $pass = sha1($request->input('password'));
+                    $admin = AdminRepos::getAdminById($request->input('username'));
+                    if($admin[0]->PASSWORD == $pass){
+                        $key =1;
+                    } else {
+                        $key = 0;
+                    }
+
+                    if($key != 1){
+                        $fail('Wrong Pass. Please Enter Correct Password!!');
+                    }
+                },
             ],
-//                'image' => ['required'],
-            'contact' => ['required']
+            'email' => ['required']
 
         ],
         [
             'username.required' => 'username can not be empty',
-            'contact.required' => 'contact can not be empty'
+            'contact.required' => 'contact can not be empty',
+            'email.required' => 'email can not be empty'
         ]
     );
 }
@@ -46,22 +63,20 @@ public function edit($admin)
         ["admin" => $admin[0]]);
 }
 
-public function update(Request $request, $username)
-{
+public function update(Request $request, $username){
+//      dd($request->all());
+
     if ($username != $request->input('username')) {
-        //id in query string must match id in hidden input
         return redirect()->action('AdminController@index');
     }
 
     $this->formValidate($request)->validate(); //shortcut
 
-    $admin = (object)[
-        'password' => $request->input('password'),
+    $admin = (object)array(
         'username' => $request->input('username'),
         'contact' => $request->input('contact'),
-        'email' => $request->input('email'),
-        'pass_hash' => sha1($request->input('password'))
-    ];
+        'email' => $request->input('email')
+    );
     AdminRepos::update($admin);
 
     return redirect()->action('AdminController@index')
