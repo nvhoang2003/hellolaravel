@@ -2,9 +2,7 @@
     <div>
         <img src="{{asset('/storage/images/logo/'.'logo.png')}}" alt="" height="60" width="90" >
     </div>
-    <div class="container offset-3">
-
-
+    <div class="container offset-1 col-1">
         <div class="collapse navbar-collapse text-dark" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
@@ -22,7 +20,7 @@
     </div>
 
 
-    <div class="container">
+    <div class="container offset-1 col-1">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -47,51 +45,36 @@
         </div>
     </div>
 
-    <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="container offset-1 col-1">
+        <div class="collapse navbar-collapse text-dark" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-dark font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        Admin
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item"
-                           href="{{route('admin.index')}}"
-                        >View Admin</a>
-
-                    </div>
+                    <a class="nav-button text-dark font-weight-bold" href="{{route('admin.index')}}">Admin</a>
                 </li>
             </ul>
         </div>
     </div>
 
-    <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="container offset-1 col-1">
+        <div class="collapse navbar-collapse text-dark" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-dark font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        Customer
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item"
-                           href="{{route('Cus.index')}}"
-                        >View Cus</a>
-
-                    </div>
+                    <a class="nav-button text-dark font-weight-bold" href="{{route('Cus.index')}}">Customer</a>
                 </li>
             </ul>
         </div>
     </div>
+    <div class="container offset-1 col-1">
+        <div class="collapse navbar-collapse text-dark" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-button text-dark font-weight-bold" href="{{route('auth.signout')}}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
 
 
 </nav>
