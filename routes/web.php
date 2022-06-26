@@ -33,6 +33,22 @@ Route::group(['prefix' => 'Admin'], function () {
     ]);
 });
 
+Route::group(['prefix' => 'Cus'], function () {
+    Route::get('', [
+        'uses' => 'CusController@index',
+        'as' => 'Cus.index'
+    ]);
+    Route::get('update/{cusid}', [
+        'uses' => 'CusController@edit',
+        'as' => 'Cus.edit'
+    ]);
+
+    Route::post('update/{cusid}', [
+        'uses' => 'CusController@update',
+        'as' => 'Cus.update'
+    ]);
+});
+
 Route::group(['prefix' => 'Event'], function () {
     Route::get('', [
         'uses' => 'CategoryController@index',
