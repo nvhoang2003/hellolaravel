@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Reposity\CusRepos;
 
-class CusController
+class CusController extends Controller
 {
     public function index(){
         $cus = CusRepos::getAllCus();
