@@ -8,7 +8,7 @@
     @csrf
     <div class="form-group">
         <label for="username" class="font-weight-bold">Username</label>
-        <input type="text" disabled class="form-control" id="username" name="username" value="{{old('username')?? $admin->username}}">
+        <input type="hidden" class="form-control" id="username" name="username" value="{{old('username')?? $admin->username}}">
     </div>
 
     <div class="form-group">
