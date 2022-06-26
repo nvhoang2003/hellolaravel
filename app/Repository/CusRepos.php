@@ -23,7 +23,7 @@ class CusRepos
     }
 
     public static function update(object $cus){
-        $sql = 'update CUSTOMER ';
+        $sql = 'update customer ';
         $sql .= 'set cusname = ?, dob = ?, gender = ?, contact = ?, email = ?, address = ? ';
         $sql .= 'where cusid = ? ';
 

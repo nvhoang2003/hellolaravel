@@ -53,7 +53,7 @@ class CusController extends Controller
                 'cusname' => ['required'],
                 'dob' => ['required'],
                 'gender'=>['required'],
-                'contact'=>['required'],
+                'contact'=>['required','digits:10'],
                 'email'=>['required'],
                 'address'=>['required']
             ],

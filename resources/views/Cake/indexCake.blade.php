@@ -2,6 +2,7 @@
 
 
 @section('main')
+    @include('partial.message')
   <div class="container">
     <h1 class="display-4">Cake Index</h1>
     <table class="table table-hover">

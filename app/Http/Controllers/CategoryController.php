@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repository\CakeRepos;
 use App\Repository\CategoryRepos;
 use Illuminate\Http\Request;
 
@@ -60,7 +61,6 @@ class CategoryController extends Controller
             [
                 'eventname' => ['required'
                 ],
-                'image' => ['required'],
                 'description' => ['required']
 
             ],
@@ -88,17 +88,24 @@ class CategoryController extends Controller
 
         $this->formValidate($request)->validate();
 
-        $event = (object)[
-            'eventid' => $request->input('eventid'),
-            'eventname' => $request->input('eventname'),
-            'image' => $request->input('image'),
-            'description' => $request->input('description'),
-        ];
-        CategoryRepos::update($event);
+        if($request->hasFile('image')) {
+            $destination_path = 'public/images/Category';
+            $image = $request->file('image');
+            $image_name = $image->getClientOriginalName();
+            $path = $request->file('image')->storeAs($destination_path, $image_name);
+            $event = (object)[
+                'eventid' => $request->input('eventid'),
+                'eventname' => $request->input('eventname'),
+                'image' => $image_name,
+                'description' => $request->input('description')
+            ];
+            CategoryRepos::update($event);
+        }
 
-        return redirect()->action('CategoryController@index')
-            ->with('msg', 'Update Successfully');
+            return redirect()->action('CategoryController@index')
+                ->with('msg', 'Update Successfully');
     }
+
 
     public function confirm($eventid){
         $event = CategoryRepos::getEventById($eventid);
@@ -114,6 +121,13 @@ class CategoryController extends Controller
     {
         if ($request->input('eventid') != $eventid) {
             return redirect()->action('CategoryController@index');
+        }
+        $cake = CakeRepos::getAllCake();
+        foreach ($cake as $c){
+            if($c->event == $eventid){
+                return redirect()->action('CategoryController@index')
+                    ->with('msg', 'Delete failed because this category have some cake.');
+            }
         }
         CategoryRepos::delete($eventid);
         return redirect()->action('CategoryController@index')
