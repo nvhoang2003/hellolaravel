@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Reposity\AdminRepos;
+use App\Repository\AdminRepos;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller

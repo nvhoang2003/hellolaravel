@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Reposity\CusRepos;
-
+use App\Repository\CusRepos;
+use Illuminate\Http\Request;
 class CusController extends Controller
 {
     public function index(){
@@ -32,13 +32,13 @@ class CusController extends Controller
         $this->formValidate($request)->validate(); //shortcut
 
         $cus = (object)[
-            'cusid' => $request->input('cusid'),
-            'username' => $request->input('username'),
+            'cusname' => $request->input('cusname'),
             'dob' => $request->input('dob'),
             'gender' => $request->input('gender'),
             'contact' => $request->input('contact'),
-            'email' => sha1($request->input('email')),
-            'address' => sha1($request->input('address'))
+            'email' => ($request->input('email')),
+            'address' => ($request->input('address')),
+            'cusid' => $request->input('cusid')
 
         ];
         CusRepos::update($cus);
@@ -46,5 +46,27 @@ class CusController extends Controller
         return redirect()->action('CusController@index')
             ->with('msg', 'Update Successfully');
     }
+    function formValidate (Request $request){
+        return \Illuminate\Support\Facades\Validator::make(
+            $request ->all(),
+            [
+                'cusname' => ['required'],
+                'dob' => ['required'],
+                'gender'=>['required'],
+                'contact'=>['required'],
+                'email'=>['required'],
+                'address'=>['required']
+            ],
+            [
+                'cusname.required' => 'cusname can not be empty',
+                'dob.required' => 'dob can not be empty',
+                'gender.required'=>'gender can not be empty',
+                'contact.required'=>'contact can not be empty',
+                'email.required'=>'email can not be empty',
+                'address.required'=>' address can not be empty'
+            ]
+        );
+    }
+
 
 }

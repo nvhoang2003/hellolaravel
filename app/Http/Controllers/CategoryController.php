@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Reposity\CategoryRepos;
+use App\Repository\CategoryRepos;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller

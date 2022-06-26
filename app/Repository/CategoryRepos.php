@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Reposity;
+namespace App\Repository;
 use Illuminate\Support\Facades\DB;
 
 class CategoryRepos

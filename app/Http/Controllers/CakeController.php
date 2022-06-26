@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Reposity\CakeRepos;
-use App\Reposity\CategoryRepos;
+use App\Repository\CakeRepos;
+use App\Repository\CategoryRepos;
 use Illuminate\Http\Request;
 
 class CakeController extends Controller

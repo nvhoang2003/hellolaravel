@@ -16,7 +16,7 @@
             <label for="dob" class="font-weight-bold">DOB</label>
             @php
                 $dob=explode('-',$cus->dob);
-                $dob=$dob[2].'-'.$dob[1].'-'.$dob[0];
+                $dob=$dob[1].'-'.$dob[2].'-'.$dob[0];
             @endphp
             <input type="date" class="form-control" id="dob" name="dob" value="{{old('dob')?? $cus->dob}}">
         </div>
