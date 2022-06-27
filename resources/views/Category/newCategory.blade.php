@@ -2,7 +2,7 @@
 
 @section('main')
     <div class="container">
-        <h1 class="display-4">New Event</h1>
+        <h1 class="display-4 text-center font-weight_bold">New Event</h1>
 
         @include('partial.error')
 
@@ -16,15 +16,15 @@
             <div class="form-group">
                 <label for="image" class="font-weight-bold">Image</label>
             </div>
-            <input type="file" name="image" id="image" />
+            <input type="file" name="image" id="image" class="mb-3"/>
 
             <div class="form-group">
                 <label for="description" class="font-weight-bold">Description</label>
-                <input type="text" class="form-control" id="description" name="description" value="{{old('description')?? $event->description}}">
+                <input  type="text" class="form-control" id="description" name="description" value="{{old('description')?? $event->description}}">
             </div>
 
             <button type="submit" class="btn btn-dark">Submit</button>
-            <a href="{{route('Event.index')}}" class="btn btn-info">Cancel</a>
+            <a href="{{route('Event.index')}}" class="btn btn-secondary">Cancel</a>
 
         </form>
 

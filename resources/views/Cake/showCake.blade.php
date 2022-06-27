@@ -5,6 +5,15 @@
     <div class="row">
         <div class="offset-1 col-5">
             <h1 class="display-4">Cake Information</h1>
+            @php
+                $cake->price = number_format($cake->price, 0, ',', '.');
+                $cake->price .= "VND";
+                if ($cake->expiry == 1){
+                    $cake->expiry.= " day";
+                }else{
+                    $cake->expiry .= " days";
+                }
+            @endphp
 
             <dl class="row">
                 <dt class="col-sm-3">cakeid</dt>

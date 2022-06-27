@@ -1,8 +1,8 @@
 @extends('master.masterpage')
 
 @section('main')
-    <div class="container">
-        <h1 class="display-4">Update Event</h1>
+    <div class="container" >
+        <h1 class="display-4 text-center font-weight_bold">Update Event</h1>
         @include('partial.error')
 
         <form action="{{route('Event.update', ['eventid' =>  $event->eventid])}}" method="post" enctype="multipart/form-data">

@@ -2,11 +2,11 @@
 
 @section('main')
     @include('partial.message')
-    <div class="container">
+    <div class="container text-center font-weight_bold oorange">
         <h1 class="display-4">Admin Index</h1>
 
-        <table class="table table-hover">
-            <thead class="thead-dark">
+        <table class="table table-success table-hover">
+            <thead >
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Username </th>
@@ -23,7 +23,7 @@
                     <td>{{$a->contact}}</td>
                     <td>{{$a->email}}</td>
 
-                    <td><a type="button" class="btn btn-success btn-sm"
+                    <td><a type="button" class="btn btn-primary btn-sm"
                            href="{{route('Admin.edit', ['username' => $a->username])}}"
                         >Edit</a>
                     </td>

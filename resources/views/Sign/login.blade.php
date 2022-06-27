@@ -62,7 +62,7 @@
 <body>
 
 
-@include('partial.error')
+
 <main class="login-form">
     <div class="cotainer">
         <div class="row justify-content-center">
@@ -71,6 +71,7 @@
                     <div class="card-header">Hello Admin. Please Login Account
                         <img src="{{asset('/storage/images/logo/'.'logo.png')}}" alt="" height="60" width="90" class="offset-7">
                     </div>
+                    @include('partial.error')
                     <div class="card-body">
                         <form
                             action="{{route('auth.signin')}}"

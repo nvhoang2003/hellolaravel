@@ -3,10 +3,10 @@
 
 @section('main')
     @include('partial.message')
-    <div class="container">
-        <h1 class="display-4">Event Index</h1>
-        <table class="table table-hover">
-            <thead class="thead-dark">
+    <div class="container oorange">
+        <h1 class="display-4 text-center font-weight_bold ">Event Index</h1>
+        <table class="table table-warning table-hover">
+            <thead class="text-dark">
             <tr>
                 <th scope="col">Eventname</th>
                 <th scope="col">Image</th>

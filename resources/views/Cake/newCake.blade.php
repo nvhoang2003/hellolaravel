@@ -1,8 +1,8 @@
 @extends('master.masterpage')
 
 @section('main')
-  <div class="container">
-    <h1 class="display-4">New Cake</h1>
+  <div class="container form_cake" >
+    <h1 class="display-4 text-center font-weight_bold">New Cake</h1>
 
     @include('partial.error')
 

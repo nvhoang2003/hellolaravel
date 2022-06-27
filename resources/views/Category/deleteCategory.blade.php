@@ -2,7 +2,7 @@
 
 @section('main')
     <div class="container">
-        <h1 class="display-4">Are you sure! You want to delete Event?</h1>
+        <h1 class="display-4 text-center font-weight_bold">Are you sure! You want to delete Event?</h1>
         <dl class="row">
             <dt class="col-sm-3">Eventid</dt>
             <dd class="col-sm-9">{{ $event->eventid }}</dd>
@@ -11,7 +11,7 @@
             <dd class="col-sm-9">{{ $event->eventname }}</dd>
 
             <dt class="col-sm-3">image</dt>
-            <dd class="col-sm-9">{{ $event->image }}</dd>
+            <dd class="col-sm-9"><img src="{{asset("/storage/images/Category/".$event->image)}}" alt="" height="60" width="90"></dd>
 
             <dt class="col-sm-3">Description</dt>
             <dd class="col-sm-9">{{$event->description }}</dd>

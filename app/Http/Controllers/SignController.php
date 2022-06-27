@@ -16,7 +16,7 @@ class SignController extends Controller
     public function signin(Request $request){
         $this->formValidate($request)->validate();
         Session::put('username', $request->input('username'));
-        return redirect()->route('Event.index');
+        return redirect()->route('auth.home');
     }
 
     function formValidate(Request $request){

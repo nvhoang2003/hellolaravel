@@ -3,58 +3,48 @@
 
 @section('main')
     @include('partial.message')
-  <div class="container">
-    <h1 class="display-4">Cake Index</h1>
-    <table class="table table-hover">
-      <thead class="thead-dark">
-      <tr>
-        <th scope="col">CakeName</th>
-        <th scope="col">flavor</th>
-        <th scope="col">price</th>
-        <th scope="col">expiry</th>
-        <th scope="col">image</th>
-        <th scope="col">size</th>
-        <th scope="col">event</th>
+    <div class="container oorange">
+        <h1 class="display-4 text-center font-weight_bold">Cake Index</h1>
+        <table class="table table-hover">
+            <tbody>
+            <tr>
+                @foreach($cake as $c )
+                    @php
+                        $c->price = number_format($c->price, 0, ',', '.');
+                        $c->price .= "VND";
+                        if ($c->expiry == 1){
+                            $c->expiry.= " day";
+                        }else{
+                            $c->expiry .= " days";
+                        }
+                    @endphp
+                    @php
+                        if($c->cakeid %3 ==1){
+                        echo '<tr>';
+                        }
+                    @endphp
 
-        <th scope="col">&nbsp;</th>
-        <th scope="col">&nbsp;</th>
-        <th scope="col">&nbsp;</th>
-      </tr>
-      </thead>
-      <tbody>
-      @foreach($cake as $c )
-          @php
-              $c->price = number_format($c->price, 0, ',', '.');
-              $c->price .= "VND";
-              if ($c->expiry == 1){
-                  $c->expiry.= " day";
-              }else{
-                  $c->expiry .= " days";
-              }
-          @endphp
-        <tr>
-          <td>{{$c->cakename}}</td>
-          <td>{{$c->flavor}}</td>
-          <td>{{$c->price}}</td>
-          <td>{{$c->expiry}}</td>
-          <td>{{$c->image}}</td>
-          <td>{{$c->size}}</td>
-          <td>{{$c->event}}</td>
+                    <td>
+                        <p>{{$c->cakename}}</p>
+                        <img src="{{asset("/storage/images/Cake/".$c->image)}}" alt="" height="60" width="90" class="mt-1">
+                        <p>{{$c->price}}</p>
+                        <div class="row">
+                            <a type="button" class="btn btn-success btn-sm" href="{{route('Cake.edit',['cakeid'=>$c->cakeid])}}">Update</a>
+                            <a type="button" class="btn btn-danger btn-sm" href="{{route('Cake.confirm',['cakeid'=>$c->cakeid])}}">Delete</a>
+                            <a type="button" class="btn btn-warning btn-sm" href="{{route('Cake.show',['cakeid'=>$c->cakeid])}}"> Show </a>
+                        </div>
+                    </td>
+                    @php
+                        if($c->cakeid %3 ==0){
+                        echo '</tr>';
+                        }
+                    @endphp
+                @endforeach
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-          <td><a type="button" class="btn btn-success btn-sm"
-                 href="{{route('Cake.edit',['cakeid'=>$c->cakeid])}}"
-            >Update</a> </td>
-          <td><a type="button" class="btn btn-danger btn-sm"
-                 href="{{route('Cake.confirm',['cakeid'=>$c->cakeid])}}"
-            >Delete</a></td>
-          <td><a type="button" class="btn btn-warning btn-sm"
-                 href="{{route('Cake.show',['cakeid'=>$c->cakeid])}}"
-            > Show </a></td>
-        </tr>
-      @endforeach
-      </tbody>
-    </table>
-  </div>
 @endsection
 
 @section('script')

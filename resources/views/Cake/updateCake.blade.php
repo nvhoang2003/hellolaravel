@@ -1,8 +1,8 @@
 @extends('master.masterpage')
 
 @section('main')
-  <div class="container">
-    <h1 class="display-4">Update Cake</h1>
+  <div class="container form_cake">
+    <h1 class="display-4 text-center font-weight_bold">Update Cake</h1>
     @include('partial.error')
 
     <form action="{{route('Cake.update', ['cakeid' =>  $cake->cakeid])}}" method="post" enctype="multipart/form-data">

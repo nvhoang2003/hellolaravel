@@ -3,10 +3,10 @@
 @section('main')
     @include('partial.message')
     <div class="container">
-        <h1 class="display-4">CusTomer Index</h1>
+        <h1 class="display-4 text-center font-weight_bold">Customer Index</h1>
 
-        <table class="table table-hover">
-            <thead class="thead-dark">
+        <table class="table table-danger table-hover">
+            <thead>
             <tr>
                 {{--        <th scope="col">#</th>--}}
                 <th scope="col">Cusname </th>

@@ -144,7 +144,7 @@ Route::group(['prefix' => '/'], function (){
     ]);
     Route::get('home',[
         'uses' => 'NormalController@home',
-        'as' => 'auth.ask'
+        'as' => 'auth.home'
     ]);
 });
 

@@ -8,3 +8,23 @@ body{
     margin-bottom:0.5em;
     height: 3em;
 }
+
+#pink{
+    background-color: #f39ab8;
+}
+
+.oorange{
+    color: #ff6200;
+}
+
+.form_cake{
+    color: purple;
+}
+
+.home{
+    background-color: #f69393;
+}
+
+.row_card{
+    margin-left: 18em;
+}

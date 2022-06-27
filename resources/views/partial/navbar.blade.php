@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-md  fixed-top bg-light justify-content-center ">
+<nav class="navbar navbar-expand-md  fixed-top justify-content-center" id="pink">
     <div>
-        <img src="{{asset('/storage/images/logo/'.'logo.png')}}" alt="" height="60" width="90" >
+        <img src="{{asset('/storage/images/logo/'.'logo_1.png')}}" alt="" height="60" width="90" >
     </div>
-    <div class="container offset-1 col-1">
+    <div class="container col-1">
         <div class="collapse navbar-collapse text-dark" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
@@ -20,7 +20,7 @@
     </div>
 
 
-    <div class="container offset-1 col-1">
+    <div class="container col-1">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -45,17 +45,22 @@
         </div>
     </div>
 
-    <div class="container offset-1 col-1">
+    <div class="container col-1">
         <div class="collapse navbar-collapse text-dark" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
                     <a class="nav-button text-dark font-weight-bold" href="{{route('admin.index')}}">Admin</a>
-                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container col-1">
+        <div class="collapse navbar-collapse text-dark" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <a class="nav-button text-dark font-weight-bold" href="{{route('auth.home')}}">Home</a>
             </ul>
         </div>
     </div>
 
-    <div class="container offset-1 col-1">
+    <div class="container col-1">
         <div class="collapse navbar-collapse text-dark" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
@@ -63,6 +68,10 @@
                 </li>
             </ul>
         </div>
+    </div>
+    <div class="offset-1 font-weight-bold">
+        {{\Illuminate\Support\Facades\Session::has('username')?
+                \Illuminate\Support\Facades\Session::get('username') : ''}}
     </div>
     <div class="container offset-1 col-1">
         <div class="collapse navbar-collapse text-dark" id="navbarCollapse">
