@@ -20,7 +20,7 @@
                 <tr>
 
                     <td>{{$e->eventname}}</td>
-                    <td>{{$e->image}}</td>
+                    <td data-toggle="tooltip" data-placement="top" >{{$e->image}}</td>
                     <td>{{$e->description}}</td>
                     <td><a type="button" class="btn btn-success btn-sm"
                            href="{{route('Event.edit',['eventid'=>$e->eventid])}}"
