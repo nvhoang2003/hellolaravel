@@ -1,6 +1,6 @@
 body{
-    padding-top: 5rem;
-    padding-bottom: 3rem;
+    /*padding-top: 5rem;*/
+    /*padding-bottom: 3rem;*/
 }
 
 .but{
@@ -27,4 +27,7 @@ body{
 
 .row_card{
     margin-left: 18em;
+}
+ul{
+    list-style-type: none;
 }
