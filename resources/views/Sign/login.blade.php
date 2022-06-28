@@ -9,7 +9,7 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
     <link rel="icon" href="Favicon.png">
-
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
@@ -62,48 +62,61 @@
 <body>
 
 
-
+@include('partial.error')
 <main class="login-form">
-    <div class="cotainer">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Hello Admin. Please Login Account
-                        <img src="{{asset('/storage/images/logo/'.'logo.png')}}" alt="" height="60" width="90" class="offset-7">
+
+    <div class="container d-flex flex-column">
+        <div class="row vh-100">
+            <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+                <div class="d-table-cell align-middle">
+                    <div class="text-center mt-4">
+                        <h1 class="h2">Welcome to DCakeShop</h1>
+                        <p class="lead">
+                            Sign in to your account to continue
+                        </p>
                     </div>
-                    @include('partial.error')
+
+
+
+                    <div class="card">
                     <div class="card-body">
+                        <div class="m-sm-4">
+                            <div class="text-center">
+                                <img src="{{asset('/storage/images/logo/'.'logo.png')}}" alt="" height="132" width="132" class="img-fluid rounded-circle">
+                            </div>
                         <form
                             action="{{route('auth.signin')}}"
                             method="post">
                             @csrf
                             <div class="form-group row">
-                                <label for="username" class="col-md-4 col-form-label text-md-right">User Name</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="username" class="form-control" name="username" value="{{old('username')}}">
+                                <div class="mb-3">
+                                <label for="username" class="form-label">User Name</label>
+                                    <input type="text" id="username" class="form-control form-control-lg" name="username" value="{{old('username')}}">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
-                                <div class="col-md-6">
-                                    <input type="password" id="password" class="form-control" name="password" >
+                                <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                    <input type="password" id="password" class="form-control form-control-lg" name="password" >
                                 </div>
                             </div>
 
-                            <div class="col-md-6 offset-md-4">
+                            <div class="text-center mt-3">
                                 <button type="submit" class="btn btn-primary">
                                     Sign In
                                 </button>
                             </div>
                         </form>
+
                     </div>
+
                 </div>
             </div>
+          </div>
         </div>
     </div>
     </div>
-
 </main>
 
 
